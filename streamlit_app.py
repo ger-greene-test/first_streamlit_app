@@ -59,6 +59,9 @@ try:
 		back_from_function = get_fruityvice_data(fruit_choice)
 		steamlit.dataframe(back_from_function)    
 		
+except URLError as e:
+    	streamlit.error()
+
 #except URLError as e:
 #streamlit.error()
 #import requests
@@ -69,7 +72,8 @@ try:
 # write your own comment - what does this do?
 #streamlit.dataframe(fruityvice_normalized)
 
-#streamlit.stop()
+streamlit.stop()
+
 #bolt in snowflake
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
