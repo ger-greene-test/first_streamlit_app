@@ -25,10 +25,6 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 #streamlit.header("Fruityvice Fruit Advice!")
 
 
-#New section to display fruitvice api response 
-streamlit.header('Fruitvice Fruit Advice!')
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
 #try:
  #   fruit_choice = streamlit.text_input('What fruit would you like information about?')
  #   if not fruit_choice:
@@ -70,3 +66,9 @@ streamlit.write('The user entered ', add_my_fruit)
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
 streamlit.write('Thanks for adding ', add_my_fruit)
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+
+
+#New section to display fruitvice api response 
+streamlit.header('Fruitvice Fruit Advice!')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
