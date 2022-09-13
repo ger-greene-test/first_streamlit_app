@@ -4,6 +4,7 @@ streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Menu')
 streamlit.text('Omega 3 & Blueberry Oatmeal')
 streamlit.text(' Kale, Spinach & Rocket Smoothie')
+
 streamlit.text('\N{chicken}  Hard-Boiled Free-Range Egg')
 
 streamlit.header('\N{banana}  Build your Own Fruit Smoothie' )
@@ -24,7 +25,15 @@ streamlit.dataframe(fruityvice_normalized)
 
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+
+
+# takes the json version of the reponse and normalize it 
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# output it the screen as a table
+streamlit.dataframe(fruityvice_normalized)
+
+
+
 
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice)
