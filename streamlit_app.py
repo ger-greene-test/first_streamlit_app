@@ -22,12 +22,13 @@ fruits_to_show  = my_fruit_list.loc[fruits_selected]
 # Display the table on the page.
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
-streamlit.header("Fruityvice Fruit Advice!")
+#streamlit.header("Fruityvice Fruit Advice!")
 
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
+
 #New section to display fruitvice api response 
 streamlit.header('Fruitvice Fruit Advice!')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
 #try:
  #   fruit_choice = streamlit.text_input('What fruit would you like information about?')
  #   if not fruit_choice:
