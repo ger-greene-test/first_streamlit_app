@@ -1,6 +1,6 @@
 import streamlit 
-import pandas
-import requests
+#import pandas
+#import requests
 import snowflake.connector
 from urllib.error import URLError
 
@@ -37,7 +37,8 @@ streamlit.write('The user entered ', fruit_choice)
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
 streamlit.dataframe(fruits_to_show)
-
+#dont run anything past here while we troubleshoot
+streamlit.stop()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("select * from fruit_load_list")
