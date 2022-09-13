@@ -51,6 +51,12 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 
 streamlit.dataframe(fruits_to_show)
 #dont run anything past here while we troubleshoot
+
+
+#New section to display fruitvice api response 
+streamlit.header('Fruitvice Fruit Advice!')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
 streamlit.stop()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
@@ -67,8 +73,3 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_
 streamlit.write('Thanks for adding ', add_my_fruit)
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
-
-#New section to display fruitvice api response 
-streamlit.header('Fruitvice Fruit Advice!')
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
