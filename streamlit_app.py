@@ -1,8 +1,8 @@
 import streamlit 
 import pandas
 import requests
-import snowflake.connector
-from urllib.error import URLError
+#import snowflake.connector
+#from urllib.error import URLError
 
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Menu')
@@ -50,9 +50,6 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 # takes the json version of the reponse and normalize it 
 
 # output it the screen as a table
-
-
-
 
 
 streamlit.dataframe(fruits_to_show)
