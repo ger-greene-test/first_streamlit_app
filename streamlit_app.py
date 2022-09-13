@@ -33,9 +33,9 @@ streamlit.header('Fruitvice Fruit Advice!')
  #   if not fruit_choice:
  #      streamlit.error("Please sekect a fruit to get information.")
  #  else:
-    fruitvice_response = request.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-     streamlit.dataframe(fruityvice_normalized)
+#    fruitvice_response = request.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+ #    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  #   streamlit.dataframe(fruityvice_normalized)
 
 
 
