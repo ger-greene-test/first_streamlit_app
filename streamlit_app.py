@@ -79,7 +79,8 @@ my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")  #runs query vs snowflake table
 my_data_rows = my_cur.fetchall()   # fetches results from query
-streamlit.header("the fruit load list contains")
+my_cnx.close()
+streamlit.header("View Our Fruit List - Add Your Favorites!")
 streamlit.dataframe(my_data_rows)  # displays on ui
 
 #bottom of page what fruit to add
@@ -94,7 +95,7 @@ if streamlit.button('Add a Fruit to the List'):
 	my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 	back_from_function = insert_row_snowflake(add_my_fruit)
 	streamlit.text(back_from_function)
-
+my_cnx.close()
 streamlit.write('The user entered ', add_my_fruit)
 
 #my_cur.execute("insert into fruit_load_list values ('from streamlit')")
